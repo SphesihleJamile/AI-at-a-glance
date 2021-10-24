@@ -40,12 +40,15 @@ We were given a problem, where an agent has to enter a maze, and find a path to 
    So, you're asking yourself.... How does the program work? Let me first break down the classes.
    
 NODE class
+
     This class represents the node, or the agent itself. It has the specifics as to how the agent/node records its movement and where did it come from. The agent also has the ability
     to reproduce, giving birth to children. No, no, there's no copulation. The node has to expand (reproduce) itself to produce children depending on the actions that are available for
     it the current position that it's in. The selected algorithm will the pick the best node, and continue going forward while storing the unvisited nodes in a frontier.
     Interesting right.
     If there are no possible actions going forward, the agent will not be able to reproduce, and will thus be forced to select the best available positions that are stored in the frontier.
+    
     Here are the mothos in the class :
+    
       > getRow()                - returns the row in which the agent is in, in the maze.
       > getCol()                - returns the column in which the agent is in, in the maze.
       > toString()              - returns a string that represents the current position of the agent. This is especially useful in the solution path.
@@ -54,18 +57,25 @@ NODE class
       > Expand(Problem problem) - this method expands the current node, to produce other nodes that lead to the goal state.
  
 PROBLEM class
+
     Computer Science is all about solving problems. This class is the problems sanctuary. This is where the entire maze is stores, and all of its details. 
     When an object of this class is created, it requires 3 inputes :
+    
       - The initial/start state (position)
       - The goal nodes/terminating states
       - The maze
+      
     With these 3 inserted, you'll have available a multitude of methods or functions, some of which are as follows :
+    
       > getProblem() - This method returns the maze iteself.
       > Result()     - This method returns a specific child of the current agent, when it takes a specific action.
       > GoalTest()   - This is a boolean method that returns true if the agents current position is the goal state, and false otherwise.
       > Action()     - Returns a list of actions that can be taken depending on the agents current position, and the available surrounding dry positions around the agent.
                      - This list of actions is very important because the NODE class uses this list to produce child nodes.
+		     
+		     
 ALGORITHMS class
+
     Home sweet home. I dont know about you, but this was the hardest part to code. I'm still a beginner in this field of Computer Science, so I learn a lot of things through projects
     such as this one, and the others in my girhub account.
     This class represents all the search algorithms I used, for the agent to be able to find its way through the maze. Different search algorithms work in different way.
